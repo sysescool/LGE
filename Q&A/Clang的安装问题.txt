@@ -1,0 +1,18 @@
+mkdir LLVM
+cd LLVM
+git clone --config core.autocrlf=false
+https://github.com/llvm/llvm-project.git
+cd llvm-project
+git tag -l
+git checkout llvmorg-9.0.0
+cd ..
+mkdir llvm_build_64
+cd llvm_build_64
+cmake -DLLVM_ENABLE_PROJECTS=clang -G "Visual Studio 16 2019" -A x64
+-DCMAKE_BUILD_TYPE=Release -Thost=x64 ..\llvm-project\llvm > cmake_history.txt
+双击打开LLVM.SLN
+从右侧选择ALL_BUILD
+点击上方绿色三角(Build)
+右侧是默认选项Debug, x64
+编译完, 会报  无法打开  的错误.
+不影响照常使用
